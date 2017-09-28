@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { clearInitialization } from './store/initialization/actions'
-import { initConnection, unsubscribeConnection } from './store/connection/actions'
-import { watchAuth, authStateChanged, authError} from './store/auth/actions'
-import { watchList, unwatchList, destroyList, unwatchAllLists } from './store/lists/actions'
-import { watchPath, unwatchPath, destroyPath, unwatchAllPaths } from './store/paths/actions'
-import { initMessaging, clearMessage } from './store/messaging/actions'
+import { clearInitialization } from 'firekit'
+import { initConnection, unsubscribeConnection } from 'firekit'
+import { watchAuth, authStateChanged, authError} from 'firekit'
+import { watchList, unwatchList, destroyList, unwatchAllLists } from 'firekit'
+import { watchPath, unwatchPath, destroyPath, unwatchAllPaths } from 'firekit'
+import { initMessaging, clearMessage } from 'firekit'
 
 const withFirebase = (Component) => {
   const ChildComponent = (props, context) => {

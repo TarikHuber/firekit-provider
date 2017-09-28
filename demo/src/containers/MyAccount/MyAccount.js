@@ -9,8 +9,9 @@ import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import firebase from 'firebase';
-import {formValueSelector } from 'redux-form';
-import { withFirebase, FireForm } from '../../../../src';
+import { formValueSelector } from 'redux-form';
+import { withFirebase } from '../../../../src';
+import FireForm from 'fireform';
 
 const path='/users/';
 
@@ -248,7 +249,7 @@ class MyAccount extends Component {
 
     render() {
 
-      const {history, intl, setDialogIsOpen, dialogs, match, auth}=this.props;
+      const {history, intl, setDialogIsOpen, dialogs, match, auth, firebaseApp}=this.props;
 
       const actions = [
         <FlatButton
@@ -277,6 +278,7 @@ class MyAccount extends Component {
           {auth.uid &&
             <div style={{margin: 15, display: 'flex'}}>
               <FireForm
+                firebaseApp={firebaseApp}
                 validate={this.validate}
                 name={'my_account'}
                 path={`${path}`}

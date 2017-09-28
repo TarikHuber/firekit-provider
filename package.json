@@ -1,7 +1,7 @@
 {
-  "name": "firekit",
-  "version": "0.1.31",
-  "description": "Firebase toolkit for sync with redux",
+  "name": "firekit-provider",
+  "version": "0.2.0",
+  "description": "Firekit provider for react applications",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -22,12 +22,15 @@
   "dependencies": {},
   "peerDependencies": {
     "react": "15.x || 16.x",
-    "firebase": "4.x",
-    "redux-form": "7.x"
+    "prop-types": "15.x",
+    "firekit": "0.1.x || 0.2.x",
+    "firebase": "4.x"
   },
   "devDependencies": {
     "firebase": "^4.4.0",
     "firebaseui": "^2.3.0",
+    "fireform": "^0.2.1",
+    "firekit": "^0.1.31",
     "github-markdown-css": "^2.8.0",
     "immutable": "^3.8.1",
     "intl": "^1.2.5",
@@ -63,10 +66,11 @@
   "author": "Tarik Huber",
   "homepage": "https://www.react-most-wanted.com/",
   "license": "MIT",
-  "repository": "https://github.com/TarikHuber/firekit",
+  "repository": "https://github.com/TarikHuber/firekit-provider",
   "keywords": [
     "react-component",
     "firebase",
+    "provider",
     "redux",
     "react"
   ]
