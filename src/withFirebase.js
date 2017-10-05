@@ -5,6 +5,7 @@ import { initConnection, unsubscribeConnection } from 'firekit'
 import { watchAuth, authStateChanged, authError} from 'firekit'
 import { watchList, unwatchList, destroyList, unwatchAllLists } from 'firekit'
 import { watchPath, unwatchPath, destroyPath, unwatchAllPaths } from 'firekit'
+import { watchDoc, unwatchDoc, destroyDoc, unwatchAllDocs } from 'firekit'
 import { initMessaging, clearMessage } from 'firekit'
 
 const withFirebase = (Component) => {
@@ -38,9 +39,15 @@ const withFirebase = (Component) => {
       destroyPath={(path, alias) => { dispatch(destroyPath(firebaseApp, path, alias)) }}
       unwatchAllPaths={() => { dispatch(unwatchAllPaths(firebaseApp)) }}
 
+      watchDoc={(path, alias) => { dispatch(watchDoc(firebaseApp, path, alias)) }}
+      unwatchDoc={(path, alias) => { dispatch(unwatchDoc(firebaseApp, path, alias)) }}
+      destroyDoc={(path, alias) => { dispatch(destroyDoc(firebaseApp, path, alias)) }}
+      unwatchAllDocs={() => { dispatch(unwatchAllDocs(firebaseApp)) }}
+
       clearApp={() => {
         dispatch(unwatchAllLists(firebaseApp))
         dispatch(unwatchAllPaths(firebaseApp))
+        dispatch(unwatchAllDocs(firebaseApp))
         dispatch(unsubscribeConnection(firebaseApp))
       }}
 
