@@ -4,6 +4,7 @@ import { clearInitialization } from 'firekit'
 import { initConnection, unsubscribeConnection } from 'firekit'
 import { watchAuth, authStateChanged, authError} from 'firekit'
 import { watchList, unwatchList, destroyList, unwatchAllLists } from 'firekit'
+import { watchCol, unwatchCol, destroyCol, unwatchAllCols} from 'firekit'
 import { watchPath, unwatchPath, destroyPath, unwatchAllPaths } from 'firekit'
 import { watchDoc, unwatchDoc, destroyDoc, unwatchAllDocs } from 'firekit'
 import { initMessaging, clearMessage } from 'firekit'
@@ -34,6 +35,11 @@ const withFirebase = (Component) => {
       destroyList={(path, alias) => { dispatch(destroyList(firebaseApp, path, alias)) }}
       unwatchAllLists={() => { dispatch(unwatchAllLists(firebaseApp)) }}
 
+      watchCol={(path, alias, append) => { dispatch(watchCol(firebaseApp, path, alias, append)) }}
+      unwatchCol={(path, alias) => { dispatch(unwatchCol(firebaseApp, path, alias)) }}
+      destroyCol={(path, alias) => { dispatch(destroyCol(firebaseApp, path, alias)) }}
+      unwatchAllCols={() => { dispatch(unwatchAllCols(firebaseApp)) }}
+
       watchPath={(path, alias) => { dispatch(watchPath(firebaseApp, path, alias)) }}
       unwatchPath={(path, alias) => { dispatch(unwatchPath(firebaseApp, path, alias)) }}
       destroyPath={(path, alias) => { dispatch(destroyPath(firebaseApp, path, alias)) }}
@@ -48,6 +54,7 @@ const withFirebase = (Component) => {
         dispatch(unwatchAllLists(firebaseApp))
         dispatch(unwatchAllPaths(firebaseApp))
         dispatch(unwatchAllDocs(firebaseApp))
+        dispatch(unwatchAllCols(firebaseApp))
         dispatch(unsubscribeConnection(firebaseApp))
       }}
 

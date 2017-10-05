@@ -1,6 +1,6 @@
 {
   "name": "firekit-provider",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "description": "Firekit provider for react applications",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -30,7 +30,7 @@
     "firebase": "^4.4.0",
     "firebaseui": "^2.3.0",
     "fireform": "^0.2.1",
-    "firekit": "^0.2.13",
+    "firekit": "^0.2.14",
     "github-markdown-css": "^2.8.0",
     "immutable": "^3.8.1",
     "intl": "^1.2.5",
