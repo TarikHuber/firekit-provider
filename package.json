@@ -1,6 +1,6 @@
 {
   "name": "firekit-provider",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "Firekit provider for react applications",
   "main": "lib/index.js",
   "module": "es/index.js",
