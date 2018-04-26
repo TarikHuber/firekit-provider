@@ -2,17 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { clearInitialization } from 'firekit'
 import { initConnection, unsubscribeConnection } from 'firekit'
-import { watchAuth, authStateChanged, authError} from 'firekit'
+import { watchAuth, authStateChanged, authError } from 'firekit'
 import { watchList, unwatchList, destroyList, unwatchAllLists } from 'firekit'
-import { watchCol, unwatchCol, destroyCol, unwatchAllCols} from 'firekit'
+import { watchCol, unwatchCol, destroyCol, unwatchAllCols } from 'firekit'
 import { watchPath, unwatchPath, destroyPath, unwatchAllPaths } from 'firekit'
 import { watchDoc, unwatchDoc, destroyDoc, unwatchAllDocs } from 'firekit'
 import { initMessaging, clearMessage } from 'firekit'
 
 const withFirebase = (Component) => {
   const ChildComponent = (props, context) => {
-    const {firebaseApp, store} = context
-    const {dispatch} = store
+    const { firebaseApp, store } = context
+    const { dispatch } = store
 
     return <Component
       dispatch={dispatch}
@@ -27,7 +27,7 @@ const withFirebase = (Component) => {
       authStateChanged={(user) => { dispatch(authStateChanged(user)) }}
       authError={(error) => { dispatch(authError(error)) }}
 
-      watchConnection={() => { dispatch(initConnection(firebaseApp)) }}
+      watchConnection={(onChange) => { dispatch(initConnection(firebaseApp, onChange)) }}
       unwatchConnection={() => { dispatch(unsubscribeConnection(firebaseApp)) }}
 
       watchList={(path, alias, append) => { dispatch(watchList(firebaseApp, path, alias, append)) }}
