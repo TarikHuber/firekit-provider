@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk';
 import reducers from './reducers';
-import { persistStore, autoRehydrate} from 'redux-persist';
+import { persistStore } from 'redux-persist';
 import { responsiveStoreEnhancer } from 'redux-responsive';
 import config from '../config';
 
@@ -15,23 +15,23 @@ export default function configureStore() {
 
   const isAuthorised = () => {
 
-    try{
+    try {
       const key = Object.keys(localStorage).find(e => e.match(/firebase:authUser/));
       const data = JSON.parse(localStorage.getItem(key));
       return data != null;
-    }catch(ex){
+    } catch (ex) {
       return false;
     }
 
 
   }
 
-  const initState={
+  const initState = {
     auth: { isAuthorised: isAuthorised() },
     ...config.initial_state
   };
 
-  let middlewares=[thunk];
+  let middlewares = [thunk];
 
   if (process.env.NODE_ENV !== 'production') {
     middlewares.push(logger); //DEV middlewares
@@ -39,13 +39,12 @@ export default function configureStore() {
 
   store = createStore(reducers, initState, compose(
     applyMiddleware(...middlewares),
-    autoRehydrate(),
     responsiveStoreEnhancer
   ));
 
-  try{
-    persistStore(store, {blacklist:['auth', 'form', 'connection', 'initialization', 'messaging'] }, ()=>{});
-  }catch(e){
+  try {
+    persistStore(store, { blacklist: ['auth', 'form', 'connection', 'initialization', 'messaging'] }, () => { });
+  } catch (e) {
 
   }
 
