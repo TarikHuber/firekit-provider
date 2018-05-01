@@ -61,7 +61,7 @@
     "redux-testkit": "^1.0.6",
     "redux-thunk": "^2.2.0",
     "seamless-immutable": "^7.1.3",
-    "uglify-js": "^3.3.22"
+    "uglify-js": "^3.3.23"
   },
   "author": "Tarik Huber",
   "homepage": "https://www.react-most-wanted.com/",
