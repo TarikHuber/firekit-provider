@@ -40,7 +40,7 @@ const withFirebase = (Component) => {
       destroyCol={(path, alias) => { dispatch(destroyCol(firebaseApp, path, alias)) }}
       unwatchAllCols={() => { dispatch(unwatchAllCols(firebaseApp)) }}
 
-      watchPath={(path, alias) => { dispatch(watchPath(firebaseApp, path, alias)) }}
+      watchPath={(path, alias, logLoading) => { dispatch(watchPath(firebaseApp, path, alias, logLoading)) }}
       unwatchPath={(path, alias) => { dispatch(unwatchPath(firebaseApp, path, alias)) }}
       destroyPath={(path, alias) => { dispatch(destroyPath(firebaseApp, path, alias)) }}
       unwatchAllPaths={() => { dispatch(unwatchAllPaths(firebaseApp)) }}
