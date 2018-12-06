@@ -1,26 +1,34 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
-import { Provider } from 'react-redux';
-import FirebaseProvider from '../../src';
-import configureStore from './store';
-import { Root } from './containers/Root';
-import { addLocalizationData } from './locales';
-import { firebaseApp } from './firebase';
+import App from './App'
+import FirebaseProvider from 'firekit-provider/lib/components/FirebaseProvider'
+import React, { Component } from 'react'
+import firebase from 'firebase/app'
+import store from './store'
+import { Provider } from 'react-redux'
+import { render } from 'react-dom'
 
-const store = configureStore();
+//Get the configs of your firebase project
+const firebaseConf = {
+  apiKey: 'AIzaSyBQAmNJ2DbRyw8PqdmNWlePYtMP0hUcjpY',
+  authDomain: 'react-most-wanted-3b1b2.firebaseapp.com',
+  databaseURL: 'https://react-most-wanted-3b1b2.firebaseio.com',
+  projectId: 'react-most-wanted-3b1b2',
+  storageBucket: 'react-most-wanted-3b1b2.appspot.com',
+  messagingSenderId: '258373383650'
+}
 
-addLocalizationData();
+//Initialise your firebase app
+const firebaseApp = firebase.initializeApp(firebaseConf)
 
 class Demo extends Component {
   render() {
-    return <div>
+    return (
       <Provider store={store}>
         <FirebaseProvider firebaseApp={firebaseApp}>
-          <Root />
+          <App />
         </FirebaseProvider>
       </Provider>
-    </div>
+    )
   }
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo />, document.querySelector('#demo'))

@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   type: 'react-component',
   npm: {
@@ -12,6 +14,10 @@ module.exports = {
   webpack: {
     html: {
       template: 'demo/public/index.html'
+    },
+    aliases: {
+      //'firekit-provider': path.resolve('src'),
+      'firekit-provider/lib': path.resolve('src')
     }
   }
 }

@@ -1,25 +1,18 @@
-import {Component} from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { FirekitContext } from './Context'
 
-class FirebaseProvider extends Component {
-
-  static propTypes = {
-    children: PropTypes.element,
-  };
-
-  static childContextTypes = {
-    firebaseApp: PropTypes.object.isRequired,
-  };
-
-  getChildContext() {
-    return {
-      firebaseApp: this.props.firebaseApp,
-    };
-  }
-
+class Provider extends Component {
   render() {
-    return this.props.children;
+    const { firebaseApp } = this.props
+
+    return <FirekitContext.Provider value={firebaseApp}>{this.props.children}</FirekitContext.Provider>
   }
 }
 
-export default FirebaseProvider;
+Provider.propTypes = {
+  children: PropTypes.any,
+  firebaseApp: PropTypes.object.isRequired
+}
+
+export default Provider
