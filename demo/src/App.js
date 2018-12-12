@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import withFirebase from 'firekit-provider/lib/withFirebase'
 
-const App = props => {
+const App = (props, context) => {
   const { firebaseApp } = props
 
   console.log('App props', props)

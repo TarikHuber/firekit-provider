@@ -4,9 +4,9 @@ import { FirekitContext } from './Context'
 
 class Provider extends Component {
   render() {
-    const { firebaseApp } = this.props
+    const { firebaseApp, context } = this.props
 
-    return <FirekitContext.Provider value={firebaseApp}>{this.props.children}</FirekitContext.Provider>
+    return <FirekitContext.Provider value={{ firebaseApp, context }}>{this.props.children}</FirekitContext.Provider>
   }
 }
 
