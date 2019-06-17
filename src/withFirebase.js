@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { clearInitialization } from 'firekit'
 import { initConnection, unsubscribeConnection } from 'firekit'
 import { watchAuth, authStateChanged, authError } from 'firekit'
@@ -9,7 +8,6 @@ import { watchPath, unwatchPath, destroyPath, unwatchAllPaths } from 'firekit'
 import { watchDoc, unwatchDoc, destroyDoc, unwatchAllDocs } from 'firekit'
 import { initMessaging, clearMessage } from 'firekit'
 import { FirekitContext } from './components/Context'
-import { ReactReduxContext } from 'react-redux'
 
 const withFirebase = Component => {
   const ChildComponent = props => {
