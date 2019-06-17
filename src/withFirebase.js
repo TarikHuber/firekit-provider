@@ -1,13 +1,13 @@
 import React from 'react'
+import { FirekitContext } from './components/Context'
 import { clearInitialization } from 'firekit'
 import { initConnection, unsubscribeConnection } from 'firekit'
-import { watchAuth, authStateChanged, authError } from 'firekit'
-import { watchList, unwatchList, destroyList, unwatchAllLists } from 'firekit'
-import { watchCol, unwatchCol, destroyCol, unwatchAllCols } from 'firekit'
-import { watchPath, unwatchPath, destroyPath, unwatchAllPaths } from 'firekit'
-import { watchDoc, unwatchDoc, destroyDoc, unwatchAllDocs } from 'firekit'
 import { initMessaging, clearMessage } from 'firekit'
-import { FirekitContext } from './components/Context'
+import { watchAuth, authStateChanged, authError } from 'firekit'
+import { watchCol, unwatchCol, destroyCol, unwatchAllCols } from 'firekit'
+import { watchDoc, unwatchDoc, destroyDoc, unwatchAllDocs } from 'firekit'
+import { watchList, unwatchList, destroyList, unwatchAllLists } from 'firekit'
+import { watchPath, unwatchPath, destroyPath, unwatchAllPaths } from 'firekit'
 
 const withFirebase = Component => {
   const ChildComponent = props => {

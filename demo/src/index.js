@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import firebase from 'firebase/app'
 import store from './store'
 import { Provider } from 'react-redux'
+import { ReactReduxContext } from 'react-redux'
 import { render } from 'react-dom'
 
 //Get the configs of your firebase project
@@ -23,7 +24,7 @@ class Demo extends Component {
   render() {
     return (
       <Provider store={store}>
-        <FirebaseProvider firebaseApp={firebaseApp}>
+        <FirebaseProvider firebaseApp={firebaseApp} context={ReactReduxContext}>
           <App />
         </FirebaseProvider>
       </Provider>
